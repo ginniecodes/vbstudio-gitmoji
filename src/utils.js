@@ -1,12 +1,11 @@
 import gitmojis from "./gitmojis.js";
 
 // Creates the parent element into which the prediction buttons will be added to.
-export function createButtonGroup() {
+export function createButtonGroup(commitSummaryInput) {
 	const buttonGroup = document.createElement("div");
-	buttonGroup.classList.add("BtnGroup");
+	buttonGroup.classList.add('BtnGroup', 'oj-flex-bar', 'oj-buttonset');
 	buttonGroup.style.display = "flex";
-	document
-		.getElementById("commit-summary-input")
+	commitSummaryInput
 		.insertAdjacentElement("beforebegin", buttonGroup); // Insert the button group at the start of the group
 
 	return buttonGroup;
@@ -27,6 +26,10 @@ export function replaceCodes(commitSummaryInput) {
 export function createButtons(commitSummaryInput, buttonGroup) {
 	const commitMsg = commitSummaryInput.value.trim();
 
+	function removeAllPredictions() {
+		buttonGroup.textContent = '';
+	}
+
 	let predictiveCount = 0;
 
 	// Predictively create a button for each emoji
@@ -43,14 +46,16 @@ export function createButtons(commitSummaryInput, buttonGroup) {
 
 			// Use the existing GitHub CSS classes for the button.
 			predictive.classList.add(
-				"btn-sm",
-				"btn",
+				"oj-button-sm",
+				"oj-button-icon-only",
 				"BtnGroup-item",
 				"ghmoji-predictive",
 			);
 
 			// Putting it here instead of the parent div so that there is no weird gap when there are no predictions
-			predictive.style.marginTop = "0.5rem";
+			predictive.style.marginTop = "1.35rem";
+			predictive.style.marginLeft = "0.25rem";
+			predictive.style.marginBottom = "0.25rem";
 
 			// Add the predicted emoji to the button
 			predictive.innerHTML = el.emoji;

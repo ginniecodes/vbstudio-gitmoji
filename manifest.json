@@ -1,18 +1,17 @@
 {
 	"manifest_version": 2,
-	"name": "githubmoji",
-	"version": "1.1",
+	"name": "vbstudio-gitmoji",
+	"version": "1.0",
 
-	"description": "Adds an gitmoji picker on GitHub commit message inputs.",
+	"description": "Adds an gitmoji picker on Oracle Visual Builder Studio commit summary inputs.",
 
 	"icons": {
 		"48": "icons/githubmoji-icon-48.png",
 		"96": "icons/githubmoji-icon-96.png"
 	},
-
 	"content_scripts": [
 		{
-			"matches": ["*://*.github.com/*"],
+			"matches": ["*://*.ocp.oraclecloud.com/*"],
 			"js": ["dist/index.js"]
 		}
 	]

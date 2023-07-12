@@ -1,7 +1,7 @@
 {
-	"name": "githubmoji",
-	"description": "Adds an gitmoji picker on GitHub commit message inputs.",
-	"version": "1.1.0",
+	"name": "vbstudio-gitmoji",
+	"description": "Adds an gitmoji picker on Oracle Visual Builder Studio commit message inputs.",
+	"version": "1.0.0",
 	"main": "src/index.js",
 	"scripts": {
 		"build": "esbuild src/index.js --bundle --outfile=dist/index.js",
@@ -9,15 +9,15 @@
 	},
 	"keywords": [
 		"gitmoji",
-		"github"
+		"oracle",
+		"opc",
+		"VB Studio",
+		"oracle visual builder studio"
 	],
-	"author": "malted",
-	"license": "MIT",
+	"author": "jhia",
+	"license": "MPL-2.0",
 	"devDependencies": {
 		"esbuild": "^0.14.53",
 		"prettier": "^2.7.1"
-	},
-	"dependencies": {
-		"selector-observer": "^2.1.6"
 	}
 }

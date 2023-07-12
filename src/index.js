@@ -1,15 +1,14 @@
-import { observe } from "selector-observer";
 import { createButtonGroup, createButtons, replaceCodes } from "./utils.js";
 
-/* Detect when the input is added to the DOM. This is necessary because
-the router GitHub uses is funky & quirky and does not use the browser's
-native navigation. This means the load event is not fired for the navigation
-methods that lead to the pages we are interested in injecting into. */
-observe("#commit-summary-input", {
-	// Called when the element is detected to have been added to the DOM.
-	add(commitSummaryInput) {
-		const buttonGroup = createButtonGroup();
 
+// select the target node
+var target = document.getElementsByTagName('body')[0];
+
+// create an observer instance
+var observer = new MutationObserver(function() {
+	const commitSummaryInput = document.getElementById('summary|input') || document.getElementById('message-title|input');
+	if(commitSummaryInput) {
+		const buttonGroup = createButtonGroup(commitSummaryInput);
 		commitSummaryInput.oninput = () => {
 			// Remove the predictions from the last keystroke, ready for this one.
 			buttonGroup.textContent = "";
@@ -19,5 +18,11 @@ observe("#commit-summary-input", {
 			// Replace Gitmoji codes with the corresponding emoji, for example :bug: becomes 🐛.
 			replaceCodes(commitSummaryInput);
 		};
-	},
+	}
 });
+
+// configuration of the observer:
+var config = { attributes: false, childList: true, subtree: false }
+
+// pass in the target node, as well as the observer options
+observer.observe(target, config);
