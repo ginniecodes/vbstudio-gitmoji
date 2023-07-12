@@ -1,15 +1,15 @@
 # githubmoji
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ma1ted/githubmoji/Node.js%20CI)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jhia/vbsmoji/Node.js%20CI)
 
 A Firefox addon that adds a predictive gitmoji picker to GitHub commit message inputs. 
-## [Get it here](https://addons.mozilla.org/en-GB/firefox/addon/githubmoji/)
+## [Get it here](https://addons.mozilla.org/en-US/firefox/addon/vbsmoji/)
 
 <img src="https://user-images.githubusercontent.com/59726149/183232181-ffce6fde-ac15-47f0-b3cc-5fdfeefaab13.png" width="500rem" />
  
 ## Building
 
 #### Clone the repository
-`git clone https://github.com/ma1ted/githubmoji`
+`git clone https://github.com/jhia/vbsmoji`
 
 #### `cd` into the new directory
 `cd githubmoji`
