@@ -19,5 +19,8 @@
 	"devDependencies": {
 		"esbuild": "^0.14.53",
 		"prettier": "^2.7.1"
+	},
+	"dependencies": {
+		"selector-observer": "^2.1.6"
 	}
 }

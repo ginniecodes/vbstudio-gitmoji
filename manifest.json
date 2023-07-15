@@ -6,13 +6,14 @@
 	"description": "Adds an gitmoji picker on Oracle Visual Builder Studio commit summary inputs.",
 
 	"icons": {
-		"48": "icons/githubmoji-icon-48.png",
-		"96": "icons/githubmoji-icon-96.png"
+		"48": "icons/vbstudio-gitmoji-icon-48.png",
+		"96": "icons/vbstudio-gitmoji-icon-96.png"
 	},
 	"content_scripts": [
 		{
 			"matches": ["*://*.ocp.oraclecloud.com/*"],
-			"js": ["dist/index.js"]
+			"js": ["dist/index.js"],
+			"css": ["dist/index.css"]
 		}
 	]
 }

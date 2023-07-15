@@ -1,0 +1,33 @@
+#vbstudio-gitmoji-BtnGroup {
+    flex: 1;
+    z-index: 100;
+    width: 100%;
+}
+
+.BtnGroup {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.ghmoji-predictive {
+    padding: 0.5rem 1rem;
+    background-color: #373e47;
+    border: 1px solid #454d56;
+    transition: 0.4s;
+    margin-bottom: 0.25rem;
+}
+
+.ghmoji-predictive:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.ghmoji-predictive:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.ghmoji-predictive:hover, .ghmoji-predictive:focus {
+    background-color: #454d56;
+}

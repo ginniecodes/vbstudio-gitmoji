@@ -1,12 +1,26 @@
 import gitmojis from "./gitmojis.js";
 
+const BUTTONGROUP_ID = 'vbstudio-gitmoji-BtnGroup';
+
 // Creates the parent element into which the prediction buttons will be added to.
 export function createButtonGroup(commitSummaryInput) {
-	const buttonGroup = document.createElement("div");
-	buttonGroup.classList.add('BtnGroup', 'oj-flex-bar', 'oj-buttonset');
-	buttonGroup.style.display = "flex";
-	commitSummaryInput
-		.insertAdjacentElement("beforebegin", buttonGroup); // Insert the button group at the start of the group
+	let buttonGroup = document.getElementById(BUTTONGROUP_ID);
+	if(!buttonGroup) {
+		buttonGroup = document.createElement("div");
+		buttonGroup.id = BUTTONGROUP_ID;
+		const container = document.createElement('div');
+		container.classList.add('BtnGroup', 'oj-flex-bar', 'oj-buttonset');
+		buttonGroup.appendChild(container);
+		commitSummaryInput
+			.insertAdjacentElement("beforebegin", buttonGroup); // Insert the button group at the start of the group
+	}
+
+	if(window.getComputedStyle(buttonGroup.parentNode).display === 'flex') {
+		buttonGroup.parentNode.style.flexWrap = 'wrap';
+		buttonGroup.style.position = 'absolute';
+	} else {
+		buttonGroup.style.position = 'static';
+	}
 
 	return buttonGroup;
 }
@@ -23,12 +37,12 @@ export function replaceCodes(commitSummaryInput) {
 	}
 }
 
+export function removeAllPredictions(buttonGroup) {
+	buttonGroup.firstChild.textContent = '';
+}
+
 export function createButtons(commitSummaryInput, buttonGroup) {
 	const commitMsg = commitSummaryInput.value.trim();
-
-	function removeAllPredictions() {
-		buttonGroup.textContent = '';
-	}
 
 	let predictiveCount = 0;
 
@@ -52,11 +66,6 @@ export function createButtons(commitSummaryInput, buttonGroup) {
 				"ghmoji-predictive",
 			);
 
-			// Putting it here instead of the parent div so that there is no weird gap when there are no predictions
-			predictive.style.marginTop = "1.35rem";
-			predictive.style.marginLeft = "0.25rem";
-			predictive.style.marginBottom = "0.25rem";
-
 			// Add the predicted emoji to the button
 			predictive.innerHTML = el.emoji;
 
@@ -69,11 +78,11 @@ export function createButtons(commitSummaryInput, buttonGroup) {
 				commitSummaryInput.focus();
 
 				// Remove the predictions, as the user has selected one.
-				removeAllPredictions();
+				removeAllPredictions(buttonGroup);
 			};
 
 			// Add this button after the others.
-			buttonGroup.insertAdjacentElement("beforeend", predictive);
+			buttonGroup.firstChild.insertAdjacentElement("beforeend", predictive);
 
 			// Increment the count to stop displaying too many predictions.
 			predictiveCount++;
