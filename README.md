@@ -3,8 +3,7 @@
 
 A Firefox addon that adds a predictive gitmoji picker to Oracle Visual Builder Studio commit message inputs. 
 
-This is a forked project from [Githubmoji]()
-## [Get it here](https://addons.mozilla.org/en-US/firefox/addon/vbstudio-gitmoji/)
+This is a forked project from [ma1ted](https://github.com/ma1ted)'s [Githubmoji](https://github.com/ma1ted/githubmoji) to make it work in Oracle Visual Builder Studio.
 
 <img src="https://user-images.githubusercontent.com/59726149/183232181-ffce6fde-ac15-47f0-b3cc-5fdfeefaab13.png" width="500rem" />
  
